@@ -1,3 +1,5 @@
+# write functionthat accepts an MxN matrix and returns a matrix that has filled the corresponding 
+# row and column equal to zero for every zero found in the matrix
 # O(MxN)
 import unittest
 

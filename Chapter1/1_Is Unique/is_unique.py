@@ -1,3 +1,5 @@
+#implement an algorithm to determine if a string has all unique charachters. 
+# what if you cannot use additional data structures?
 # O(N)
 import unittest
 
@@ -7,7 +9,7 @@ def unique(string):
     if len(string) > 128:
         return False
 
-    char_set = [False for _ in range(128)]
+    char_set = [False] * 128
     for char in string:
         val = ord(char)
         if char_set[val]:
