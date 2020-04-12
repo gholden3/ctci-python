@@ -46,6 +46,17 @@ class LinkedList:
             self.tail = self.tail.next
         return self.tail
 
+    def append_node_to_tail(self, n: LinkedListNode) -> None:
+        if self.head is None:
+            self.head = self.tail = n
+            return
+        self.tail.next = n
+        end = n
+        while end.next:
+            end = end.next
+        self.tail = end
+        return
+
     def add_to_beginning(self, value):
         if self.head is None:
             self.tail = self.head = LinkedListNode(value)
