@@ -39,11 +39,6 @@ class Test(unittest.TestCase):
 #      2        3
 #    /   \     / \ 
 #   4     5   6    7
-        import sys
-        print("Python version")
-        print (sys.version)
-        print("Version info.")
-        print (sys.version_info)
         six_node = BinaryTreeNode("6")
         seven_node = BinaryTreeNode("7")
         three_node = BinaryTreeNode("3", six_node, seven_node)
