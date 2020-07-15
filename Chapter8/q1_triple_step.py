@@ -2,6 +2,7 @@
 # at a time. Implement a method to count how many possible ways the child can run up the stairs
 import unittest
 
+
 def triple_step(n):
     if n < 0:
         return 0
@@ -12,23 +13,24 @@ def triple_step(n):
     return triple_step(n - 1) + triple_step(n - 2) + triple_step(n - 3)
 
 
-def Method2(x):
-    memo = [-1] * (x + 1)
-    return TripleHopRecursive(x, memo)
+def triple_step_memo_runner(n):
+    path_counts = [-1] * (n+1)
+    return triple_step_memo(n, path_counts)
 
 
-def TripleHopRecursive(x, memo):
-    if x < 0:
+def triple_step_memo(n, path_counts):
+    if n < 0:
         return 0
-    memo[0] = 1
-    if x >= 1:
-        memo[1] = 1
-    if x >= 2:
-        memo[2] = memo[1] + memo[0]
-    if x > 2:
-        for i in range(3, x + 1):
-            memo[i] = memo[i - 1] + memo[i - 2] + memo[i - 3]
-    return memo[x]
+    if n == 0:
+        return 1
+    # check to see if the value has already been computed
+    if path_counts[n] > -1:
+        return path_counts[n]
+    #otherwise calculate the number of paths to this step
+    path_counts[n] = triple_step_memo(n-1, path_counts) + \
+                     triple_step_memo(n-2, path_counts) + triple_step_memo(n-3, path_counts)
+    return path_counts[n]
+
 
 class Test(unittest.TestCase):
     """Test Cases"""
@@ -36,7 +38,7 @@ class Test(unittest.TestCase):
     # where n is the number of steps in the staircase
     # and p is the expected number of paths available to get there
     test_cases = [
-        (1,  1),
+        (1, 1),
         (2, 2),
         (3, 4),
         (4, 7)
@@ -45,7 +47,12 @@ class Test(unittest.TestCase):
     def test_triple_step(self):
         for (n, expected) in self.test_cases:
             actual = triple_step(n)
-            self.assertEqual( expected, actual)
+            self.assertEqual(expected, actual)
+
+    def test_triple_step_with_memo(self):
+        for (n, expected) in self.test_cases:
+            actual = triple_step_memo_runner(n)
+            self.assertEqual(expected, actual)
 
 if __name__ == "__main__":
     unittest.main()
