@@ -4,7 +4,7 @@ import unittest
 # driver function
 
 
-def merge(array,  low, middle, high):
+def merge(array, low, middle, high):
     # copy both halves into a helper array
     helper = [0]*len(array)
     helper[low:high+1] = array[low:high+1]
@@ -14,7 +14,7 @@ def merge(array,  low, middle, high):
 
     # iterate through the helper array. compare the left and right and copy the smaller
     # value into the real array
-    while((helper_left <= middle) and (helper_right <=high)  ):
+    while (helper_left <= middle) and (helper_right <= high):
         if helper[helper_left] <= helper[helper_right]:
             array[current] = helper[helper_left]
             helper_left += 1
@@ -25,7 +25,7 @@ def merge(array,  low, middle, high):
     # if we exited the loop before left side was finished copying over, we need to copy
     # all the remaining elements
     remaining = middle+1 - helper_left
-    for i in range(0,remaining):
+    for i in range(0, remaining):
         array[current+i] = helper[helper_left + i]
 
 
