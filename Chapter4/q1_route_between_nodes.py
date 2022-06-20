@@ -8,16 +8,16 @@ import unittest
 
 
 class Node:
-    def __init__(self, vertex, adjacentLength):
-        self.adjacent = [0] * adjacentLength
+    def __init__(self, vertex, adjacent_length):
+        self.adjacent = [0] * adjacent_length
         self.vertex = vertex
-        self.adjacentCount = 0
+        self.adjacent_count = 0
         self.visited = False
 
     def add_adjacent(self, x):
-        if self.adjacentCount < len(self.adjacent):
-            self.adjacent[self.adjacentCount] = x
-            self.adjacentCount += 1
+        if self.adjacent_count < len(self.adjacent):
+            self.adjacent[self.adjacent_count] = x
+            self.adjacent_count += 1
         else:
             print("No more adjacent nodes can be added")
 

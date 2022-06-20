@@ -2,10 +2,8 @@
 # nodes at each depth (eg if you have a tree with depth D, you'll have D linked lists)
 
 import unittest
-from binary_tree import BinaryTree, BinaryTreeNode
+from Chapter4.binary_tree import  BinaryTreeNode
 from typing import List
-from queue import Queue
-from LinkedList import LinkedList
 
 def list_of_depths(root_node: BinaryTreeNode, lists: List[LinkedList], level: int) -> List[LinkedList]:
     # base case. bottom of the tree

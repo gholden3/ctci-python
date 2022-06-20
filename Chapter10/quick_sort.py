@@ -14,9 +14,12 @@ def partition(arr, left, right):
     # everything to the left is lower than pivot value.
     ptr = left
     for i in range(left, right):
-        # if val at i is smaller than pivot
-        if arr[i] <= pivot_val:
-            # Swapping values smaller than the pivot to the front
+        val_i = arr[i]
+        # if val_i is smaller than pivot
+        if val_i <= pivot_val:
+            # move val_i into the pointer spot and move
+            # the value that was in the pointer into i^th index, so that
+            # the pointer can be moved right and the lesser value, vali_i, is to the left
             arr[i], arr[ptr] = arr[ptr], arr[i]
             ptr += 1
         # Finally swapping the last element with the pointer indexed number
@@ -40,7 +43,7 @@ def quick_sort(in_arr: List[int]):
 
 class Tests(unittest.TestCase):
 
-    def test_merge_sort(self):
+    def test_quick_sort(self):
         unsorted = [9, 6, 3, 4, 5, 1, 7, 8]
         sorted_answer = quick_sort(unsorted)
         self.assertEqual(sorted_answer, [1, 3, 4, 5, 6, 7, 8, 9])
