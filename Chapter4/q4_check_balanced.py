@@ -40,11 +40,17 @@ class Test(unittest.TestCase):
 #   4     5   6    7
     six_node = BinaryTreeNode("6")
     seven_node = BinaryTreeNode("7")
-    three_node = BinaryTreeNode("3", six_node, seven_node)
+    three_node = BinaryTreeNode("3")
+    three_node.left = six_node
+    three_node.right = seven_node
     four_node = BinaryTreeNode("4")
     five_node = BinaryTreeNode("5")
-    two_node = BinaryTreeNode("2", four_node, five_node)
-    one_node = BinaryTreeNode("1", two_node, three_node)
+    two_node = BinaryTreeNode("2")
+    two_node.left = four_node
+    two_node.right = five_node
+    one_node = BinaryTreeNode("1")
+    one_node.left = two_node
+    one_node.right = three_node
     binary_tree = BinaryTree(one_node)
     balanced = run_check_balanced(binary_tree)
     self.assertTrue(balanced)
