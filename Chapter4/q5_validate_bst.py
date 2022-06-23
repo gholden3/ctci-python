@@ -15,15 +15,6 @@ def check_if_bst(node: BinaryTreeNode, min, max):
     else:
         return False
 
-    # if ((min != null & & n.data <= min) | | (max != null & & n.data > max)) {
-    # return false;
-    # }
-    # if (!checkBST(n.left, min, n.data) | |
-    #     !checkBST(n.right, n.data, max)) {
-    #     return false;
-    # }
-    # return true;
-
 def run_check_if_bst(node):
     return check_if_bst(node, None, None)
 
