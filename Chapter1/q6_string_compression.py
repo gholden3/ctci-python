@@ -4,7 +4,7 @@
 # you can assume the string has only uppsercase and lowercase letters (a-z)
 # the book notes something about stringbuilder in java to avoid the n^2 cost of string concatenation but there is
 # no direct correlation in python. instead, list append is considered O(1) so runtime here is O(p + k) where p is the
-# size of original string and k is number of charachter sequences.
+# size of original string and k is number of character sequences.
 # the book also notes a case where you might want to check the resulting compressed length before you start
 # actually building the string because it might save you some time if you dont expect to have a lot of repeating
 # charachters. its simple implementation and actually increases run time if you do have good compression,

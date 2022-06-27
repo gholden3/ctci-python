@@ -23,7 +23,7 @@ class Tests(unittest.TestCase):
         list_a = [1, 3, 4, 5, 9, None, None, None, None, None]
         list_b = [2, 6, 7, 8, 10]
         sorted_list = sorted_merge(list_a, list_b, 4)
-        self.assertEqual( [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], sorted_list)
+        self.assertEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], sorted_list)
 
 if __name__ == '__main__':
     unittest.main()

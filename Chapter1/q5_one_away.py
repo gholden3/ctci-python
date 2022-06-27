@@ -3,11 +3,14 @@ import unittest
 
 
 def one_away(s1, s2):
-    '''Check if a string can converted to another string with a single edit'''
+    '''Check if a string can be converted to another string with a single edit'''
+    # if they are the same length we can only accept one replace edit
     if len(s1) == len(s2):
         return one_edit_replace(s1, s2)
+    # if if s1 is only one longer than s2 we can accept one insertion into s1
     elif len(s1) + 1 == len(s2):
         return one_edit_insert(s1, s2)
+    # if s1 is only one longer than s2 we can accept one insertion into s2
     elif len(s1) - 1 == len(s2):
         return one_edit_insert(s2, s1)
     return False
